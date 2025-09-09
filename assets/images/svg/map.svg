@@ -1,0 +1,16 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 18" width="14" height="18">
+	<title>map</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m14 6.8c0 5.33-6.34 10.82-6.61 11.06q-0.18 0.14-0.39 0.14-0.21 0-0.39-0.14c-0.27-0.24-6.61-5.74-6.61-11.06 0-3.75 3.14-6.8 7-6.8 3.86 0 7 3.05 7 6.8zm-3.11-0.05c0-2.07-1.75-3.75-3.89-3.75-2.14 0-3.89 1.68-3.89 3.75 0 2.07 1.75 3.75 3.89 3.75 2.14 0 3.89-1.68 3.89-3.75z"/>
+		</clipPath>
+		<image  width="20" height="19" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATAQMAAACqQr/2AAAAAXNSR0IB2cksfwAAAANQTFRFxrJOdc93hQAAAA9JREFUeJxjZGBgYKQSBgADRAAUCtFKKAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		.s0 { fill: #ff7010 } 
+	</style>
+	<g clip-path="url(#cp1)">
+		<path fill-rule="evenodd" class="s0" d="m14 6.8c0 5.3-6.3 10.8-6.6 11.1q-0.2 0.1-0.4 0.1-0.2 0-0.4-0.1c-0.3-0.3-6.6-5.8-6.6-11.1 0-3.8 3.1-6.8 7-6.8 3.9 0 7 3 7 6.8zm-3.1-0.1c0-2-1.8-3.7-3.9-3.7-2.1 0-3.9 1.7-3.9 3.7 0 2.1 1.8 3.8 3.9 3.8 2.1 0 3.9-1.7 3.9-3.8z"/>
+		<use id="Layer 1" href="#img1" x="-3" y="0"/>
+	</g>
+</svg>

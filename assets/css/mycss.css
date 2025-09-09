@@ -1,0 +1,153 @@
+ 
+
+@media screen and (max-width:480px) {
+     #mobile-header-none{
+    display: none;
+ }
+}
+
+.as_menu{
+    background-color: var(--primary-color);
+}
+
+#footer-my{
+    
+    background: url(../my-images/bg1.jpg);
+}
+
+.as_footer_inner {
+    background: url(../my-images/bg1.jpg);
+}
+
+.as_product_box{
+    background: #ffffffb0;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#my-banner-2{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+#my-banner-2 .my-overlay{ 
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: red;
+}
+
+#logo-show-mobile{
+        display: none;
+    } 
+
+    #logo-hide-mobile{
+        display: block; padding: 0; margin: 0;
+    }
+
+    @media screen and (max-width:768px) {
+        #tab-hide{
+            display: none;
+        }
+    }
+@media screen and (max-width:480px) {
+    #logo-hide-mobile{
+        display: none;
+    } 
+    #logo-show-mobile{
+        display: block;
+        padding: 0 10px;
+    } 
+
+     #mobile-header-none2{
+        display: none !important;
+    }
+
+    #mobile-toggle{ 
+        display: flex; justify-content: space-between; width: 100%;
+    }
+}
+
+@media screen and (max-width:320px) {
+    #mobile-header-none2{
+        display: none !important;
+    }
+}
+
+ 
+
+.as_share_box2 ul{
+    display: flex;
+    justify-content: flex-start ; 
+    flex-wrap: wrap;
+    gap: 0 10px;     
+}
+
+.as_share_box2 ul li a { 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white2-color) !important;
+    font-size: 20px !important;
+    border-radius: 100%;
+}
+.as_share_box2 ul li a:hover{
+    background-color: var(--secondary-color);
+}
+.as_share_box2 ul li {
+    width: 30px;
+}
+
+/* CSS */
+.numerology-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.numerology-list li {
+    border-bottom: 1px solid #ddd; /* line below each item */
+    padding: 12px 0;
+    position: relative;
+    padding-left: 25px; /* space for arrow */
+}
+
+.numerology-list li:last-child {
+    border-bottom: none; /* remove line from last item */
+}
+
+.numerology-list li::before {
+    content: "\2192"; /* right arrow (→) */
+    position: absolute;
+    left: 0;
+    color: #333;
+    font-size: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.numerology-list a {
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+    width: 100%;
+}
+
+
+.as_info_detail ul li {
+    padding: 0 !important;
+}
+
+.as_menu{
+    padding-top:6px;
+}
+
+@media screen and (max-width:480px) {
+    .as_menu_wrapper2 { 
+        padding-right: 30px; 
+    }
+}
+

@@ -1,0 +1,564 @@
+<?php
+include('admin/inc/config.php');
+
+// Validate category URL
+if (isset($_GET['cat_url']) && !empty($_GET['cat_url'])) {
+    $cat_url = $_GET['cat_url'];
+
+    // Fetch the category details
+    $statement = $pdo->prepare("SELECT * FROM tbl_product_category WHERE cat_url = ? AND status = 1");
+    $statement->execute([$cat_url]);
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if (!$row) {
+        header('location: shop.php');
+        exit;
+    }
+
+    $cat_id   = $row['cat_id'];
+    $cat_name = $row['cat_name'];
+
+    // Fetch products of this category
+    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE cat_id = ? AND a_is_active = 1");
+    $statement->execute([$cat_id]);
+    $products = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+} else {
+    // Redirect if cat_url missing
+    header('location: shop.php');
+    exit;
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cosmicenergies | Numerology Website | Shop</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/js/plugin/airdatepicker/datepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/mycss.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/cart.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+
+    <style>
+        .as_breadcrum_wrapper {
+            padding-top: 200px;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .as_banner_wrapper {
+            padding-top: 200px;
+        }
+
+        .button-disable .as_btn:after,
+        .as_btn:before {
+            border-left: 0px solid var(--secondary-color) !important;
+        }
+
+        .button-disable .as_btn:before {
+            border-right: 0px solid var(--secondary-color) !important;
+        }
+
+        .range-slider {
+            width: 100%;
+            margin: auto;
+            position: relative;
+            height: 4em;
+        }
+
+        .range-slider svg,
+        .range-slider input[type=range] {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        input[type=number] {
+            border: 1px solid #ddd;
+            text-align: center;
+            /* font-size: 1.6em; */
+            -moz-appearance: textfield;
+        }
+
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input[type=number]:invalid,
+        input[type=number]:out-of-range {
+            border: 2px solid #ff6347;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: var(--primary-color);
+        }
+
+        input[type=range]:focus::-ms-fill-lower {
+            background: var(--primary-color);
+        }
+
+        input[type=range]:focus::-ms-fill-upper {
+            background: var(--primary-color);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animate: 0.2s;
+            background: var(--primary-color);
+            border-radius: 1px;
+            box-shadow: none;
+            border: 0;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            z-index: 2;
+            position: relative;
+            box-shadow: 0px 0px 0px #000;
+            border: 1px solid var(--primary-color);
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: #a1d0ff;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+        }
+
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animate: 0.2s;
+            background: var(--primary-color);
+            border-radius: 1px;
+            box-shadow: none;
+            border: 0;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            z-index: 2;
+            position: relative;
+            box-shadow: 0px 0px 0px #000;
+            border: 1px solid var(--primary-color);
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: #a1d0ff;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animate: 0.2s;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower,
+        input[type=range]::-ms-fill-upper {
+            background: var(--primary-color);
+            border-radius: 1px;
+            box-shadow: none;
+            border: 0;
+        }
+
+        input[type=range]::-ms-thumb {
+            z-index: 2;
+            position: relative;
+            box-shadow: 0px 0px 0px #000;
+            border: 1px solid var(--primary-color);
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: #a1d0ff;
+            cursor: pointer;
+        }
+
+        /* Container */
+        .product-card-animation {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        /* Image */
+        .product-img img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Text Layer Styling */
+        .text-layer {
+            position: absolute;
+            bottom: -100%;
+            /* Hide initially */
+            left: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            color: white;
+            padding: 20px;
+            z-index: 2;
+            transition: bottom 0.4s ease;
+            text-align: center;
+        }
+
+        .text-layer .as_price{
+            color: var(--primary-color);
+        }
+
+         .text-layer .as_btn:before {
+        border-right: 15px solid var(--primary-color) !important;
+        }
+
+        .text-layer .as_btn:after, .as_btn:before {
+        border-left: 15px solid var(--primary-color);
+        }
+
+        /* Button Styling */
+        .as_btn {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Hover Effects */
+        .product-card-animation:hover .text-layer {
+            bottom: 0;
+        }
+
+        .product-card-animation:hover .as_btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .product-card-animation:hover .hover-hide {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="as_main_wrapper">
+
+
+        <!-- START HEADER -->
+        <?php include('include/header.php'); ?>
+        <!-- END HEADER -->
+
+        <section class="as_breadcrum_wrapper" style="background: var(--white2-color);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1><?= $cat_name; ?></h1>
+                        <ul class="breadcrumb" style="color:white; background:var(--white2-color);">
+                            <li><a href="index.php" style="color: var(--primary-color); font-size:18px;  ">Home &nbsp;>> </a></li>
+                            <li><a href="shop.php" style="color: var(--primary-color); font-size:18px;  ">&nbsp; Product &nbsp;>> </a></li>
+                            <li><a style="color: var(--primary-color); font-size:18px;  ">&nbsp; <?= $cat_name; ?> </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Products Section Start -->
+        <section class="as_product_wrapper as_padderBottom80 as_padderTop80" style="background: var(--white-color);">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-3">
+                        <div class="as_blog_sidebar " style="padding-top: 30px;">
+                            <div class="as_service_widget as_padderBottom40" style="box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; padding:20px;">
+                                <h3 class="as_heading">Filter Results By</h3>
+                                <ul class="numerology-list">
+                                    <?php
+                                    $statement = $pdo->prepare("SELECT * FROM tbl_product_category WHERE status = 1 ORDER BY cat_id DESC");
+                                    $statement->execute();
+                                    $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                                    foreach ($categories as $category) {
+                                    ?>
+                                        <li style="font-size: 18px;">
+                                            <a href="shop-category.php?cat_url=<?php echo $category['cat_url']; ?>"  style="color:var(--primary-color)">
+                                                <?php echo ($category['cat_name']); ?>
+                                            </a>
+                                        </li>
+                                    <?php
+                                    }
+                                    ?>
+                                  
+                                    <li style="font-size: 18px;">
+                                        <a style="padding-bottom: 10px;">Price Filter</a>
+                                        <div class="range-slider">
+                                            <input value="233" min="0" max="10000" step="500" type="range" />
+                                            <input value="6666" min="0" max="10000" step="500" type="range" />
+                                            <span>
+                                                <input type="number" value="100" min="0" max="10000" style="color: var(--primary-color);" />
+                                                &nbsp; To &nbsp;
+                                                <input type="number" value="1000" min="0" max="10000" style="color: var(--primary-color);" />
+                                            </span>
+                                        </div>
+                                        <div class="btn btn-primary" style="width: 100%; margin-top:30px; background:var(--primary-color); border:1px solid var(--primary-color); ">
+                                            Search</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                      <style>
+                        #sortby {
+                            border: 1px solid var(--primary-color);
+                            color: var(--primary-color);
+                            /* color: var(--primary-color);
+                                                    background-color: var(--secondary-color); */
+                            text-align: center;
+                        }
+                    </style>
+                    <div class="col-lg-9 text-center">
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <div class="item-filter">
+                                    <ul class="item-short-area" style="display: flex; justify-content:flex-end">
+                                        <p style="padding-top: 10px;"> Sort By : &nbsp;</p>
+                                        <select id="sortby" name="sort" class="short-item" style="text-align: center;"> 
+                                            <option value="default">Default</option>
+                                            <option value="price_asc">Lowest Price</option>
+                                            <option value="price_desc">Highest Price</option>
+                                            <option value="name_asc">A to Z</option>
+                                            <option value="name_desc">Z to A</option>
+                                        </select>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="product-list">
+                            <div class="col-lg-12 text-center">
+                                <div class="row d-flex justify-content-center">
+
+
+
+                                    <?php if ($products) : ?>
+                                        <?php foreach ($products as $product) : ?>
+                                            <div class="col-lg-4 col-md-6">
+                                                <div class="as_product_box product-card-animation" style="height:480px;">
+                                                    <div class="as_product_img product-img">
+                                                        <a href="shop-detail.php?url=<?php echo $product['url']; ?>">
+                                                            <img src="./admin/uploads/products/<?= ($product['a_photo']); ?>" style="width: 400px;" alt="Product Image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="text-center hover-hide">
+                                                        <h4 class="as_subheading">
+                                                            <a href="shop-detail.php?url=<?php echo $product['url']; ?>">
+                                                                <h4 class="as_subheading"><?= ($product['a_name']); ?></h4>
+                                                            </a>
+                                                        </h4>
+                                                        <span class="as_price">₹ <?php echo $product['a_current_price']; ?></span>
+                                                    </div>
+                                                    <div class="text-layer">
+                                                        <h4 class="as_subheading">
+                                                            <a href="shop-detail.php?url=<?php echo $product['url']; ?>">
+                                                                <?php echo $product['a_name']; ?>
+                                                            </a>
+                                                        </h4>
+                                                        <span class="as_price">₹ <?php echo $product['a_current_price']; ?></span>
+                                                        <div class="show-animation">
+                                                            <a href="shop-detail.php?url=<?php echo $product['url']; ?>" class="as_btn" style="background-color: var(--primary-color);">Buy Now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <p>No products found in this category.</p>
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Products Section End -->
+
+
+        <!-- Footer Section Start -->
+        <?php include('include/footer.php'); ?>
+        <!-- Footer Copyright Section End  -->
+
+    </div>
+
+
+    <!-- javascript -->
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/jquery.min.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/plugin/slick/slick.min.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/plugin/countto/jquery.countTo.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/plugin/airdatepicker/datepicker.min.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/plugin/airdatepicker/i18n/datepicker.en.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/custom.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/rocket-loader.min.js" data-cf-settings="dea942b4e5104683ffff5739-|49" defer></script>
+    <script>
+        (function() {
+            var parent = document.querySelector(".range-slider");
+            if (!parent) return;
+            var
+                rangeS = parent.querySelectorAll("input[type=range]"),
+                numberS = parent.querySelectorAll("input[type=number]");
+            rangeS.forEach(function(el) {
+                el.oninput = function() {
+                    var slide1 = parseFloat(rangeS[0].value),
+                        slide2 = parseFloat(rangeS[1].value);
+                    if (slide1 > slide2) {
+                        [slide1, slide2] = [slide2, slide1];
+                        // var tmp = slide2;
+                        // slide2 = slide1;
+                        // slide1 = tmp;
+                    }
+                    numberS[0].value = slide1;
+                    numberS[1].value = slide2;
+                }
+            });
+            numberS.forEach(function(el) {
+                el.oninput = function() {
+                    var number1 = parseFloat(numberS[0].value),
+                        number2 = parseFloat(numberS[1].value);
+                    if (number1 > number2) {
+                        var tmp = number1;
+                        numberS[0].value = number2;
+                        numberS[1].value = tmp;
+                    }
+                    rangeS[0].value = number1;
+                    rangeS[1].value = number2;
+                }
+            });
+        })();
+    </script>
+
+    <!-- Product Filter -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const select = document.getElementById('sortby');
+            const container = document.getElementById('product-list');
+            const originalItems = Array.from(container.children); // Keep original order for "default"
+            select.addEventListener('change', function() {
+                const value = this.value;
+                let items = Array.from(container.children);
+                if (value === 'price_asc') {
+                    items.sort((a, b) => getPrice(a) - getPrice(b));
+                } else if (value === 'price_desc') {
+                    items.sort((a, b) => getPrice(b) - getPrice(a));
+                } else if (value === 'name_asc') {
+                    items.sort((a, b) => getName(a).localeCompare(getName(b)));
+                } else if (value === 'name_desc') {
+                    items.sort((a, b) => getName(b).localeCompare(getName(a)));
+                } else if (value === 'default') {
+                    items = originalItems;
+                }
+                container.innerHTML = '';
+                items.forEach(item => container.appendChild(item));
+            });
+
+            function getPrice(el) {
+                const priceText = el.querySelector('.as_price').textContent.replace(/[^\d.]/g, '');
+                return parseFloat(priceText) || 0;
+            }
+
+            function getName(el) {
+                return el.querySelector('.as_subheading').textContent.trim().toLowerCase();
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const productContainer = document.getElementById('product-list');
+            const products = Array.from(productContainer.querySelectorAll('.col-lg-4'));
+            // Price Filter Elements
+            const priceMinInput = document.querySelector('.range-slider input[type="number"]:first-child');
+            const priceMaxInput = document.querySelector('.range-slider input[type="number"]:last-child');
+            const searchBtn = document.querySelector('.btn.btn-primary');
+            // Handle Price Filter on Search Button Click
+            searchBtn.addEventListener('click', function() {
+                const min = parseFloat(priceMinInput.value) || 0;
+                const max = parseFloat(priceMaxInput.value) || 10000;
+                products.forEach(product => {
+                    const priceText = product.querySelector('.as_price').textContent.replace(
+                        /[^\d.]/g, '');
+                    const price = parseFloat(priceText);
+                    if (price >= min && price <= max) {
+                        product.style.display = '';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+            // Optional: Sync range sliders with number inputs
+            const sliders = document.querySelectorAll('.range-slider input[type="range"]');
+            sliders[0].addEventListener('input', () => {
+                priceMinInput.value = sliders[0].value;
+            });
+            sliders[1].addEventListener('input', () => {
+                priceMaxInput.value = sliders[1].value;
+            });
+            priceMinInput.addEventListener('input', () => {
+                sliders[0].value = priceMinInput.value;
+            });
+            priceMaxInput.addEventListener('input', () => {
+                sliders[1].value = priceMaxInput.value;
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
