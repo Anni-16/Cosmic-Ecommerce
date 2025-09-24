@@ -53,48 +53,10 @@ $image2 = $row['image2'] ?? '';
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-     <!-- This Google Font used in Captions -->
+    <!-- This Google Font used in Captions -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-        
-        .as_aboutimg::before{
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom: 20px;
-    border-left: 2px solid var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    width: 90px;
-    height: 90px;
-}
-    </style>
-
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/about-page.css"/> 
 </head>
 
 <body>
@@ -112,7 +74,7 @@ $image2 = $row['image2'] ?? '';
                         <h1>About us</h1> 
                         <ul class="breadcrumb" style="color:white; background:var(--white2-color);">
                             <li><a href="index.php" style="color: var(--primary-color); font-size:18px;  ">Home &nbsp;>> </a></li>
-                            <li><a href=" " style="color: var(--primary-color); font-size:18px;  ">&nbsp;About Us </a></li> 
+                            <li><a  style="color: var(--primary-color); font-size:18px;  ">&nbsp;About Us </a></li> 
                         </ul>
                     </div>
                 </div>

@@ -60,51 +60,8 @@ $map_status = $row['map_status'];
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
 
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
 
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-
-        input,
-        textarea,
-        select {
-            color: var(--primary-color) !important;
-            background-color: #fff !important;
-            width: 100%;
-        }
-
-        .MsoNormal{
-            font-size: 18px !important;
-        }
-
-        #para-18 p{
-            font-size: 18px !important;
-            text-align: left !important;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/numerology-detail-page.css" />
 
 </head>
 
@@ -121,11 +78,11 @@ $map_status = $row['map_status'];
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h1><?= $ser_name; ?></h1> 
+                        <h1><?= $ser_name; ?></h1>
                         <ul class="breadcrumb" style="color:white; background:var(--white2-color);">
                             <li><a href="index.php" style="color: var(--primary-color); font-size:18px;  ">Home &nbsp;>> </a></li>
-                            <li><a href="numerology.php" style="color: var(--primary-color); font-size:18px;  ">&nbsp; Numerology &nbsp;>></a></li> 
-                            <li><a style="color: var(--primary-color); font-size:18px;  ">&nbsp; <?= $ser_name; ?>  </a></li> 
+                            <li><a href="numerology.php" style="color: var(--primary-color); font-size:18px;  ">&nbsp; Numerology &nbsp;>></a></li>
+                            <li><a style="color: var(--primary-color); font-size:18px;  ">&nbsp; <?= $ser_name; ?> </a></li>
                         </ul>
                     </div>
                 </div>
@@ -141,15 +98,15 @@ $map_status = $row['map_status'];
                             <h1 class="as_heading" style="color:var(--primary-color)"><?= $ser_name; ?> - <?= $ser_price; ?></h1>
                             <p class="as_font14" style="color: var(--gray-color);   text-align:justify !important">
                                 <?= $ser_description; ?>
-                            </p> 
+                            </p>
                             <a target="_blank" href="https://api.whatsapp.com/send?phone=7619377055&text=Hello! Can I get more info on this ?." class="as_btn">
-                              <!-- SVG Icon Here -->
-                                <img src="./assets/my-images/chat.png" alt="" style="width:35px;">  &nbsp;
-                            Chat With Us</a>
+                                <!-- SVG Icon Here -->
+                                <img src="./assets/my-images/chat.png" alt="Cosmicenergies" style="width:35px;"> &nbsp;
+                                Chat With Us</a>
                         </div>
                     </div>
                     <div class="offset-xxl-2 col-xxl-4 col-xl-6 col-lg-6 col-md-12">
-                         <h1 class="as_heading" style="color:var(--primary-color); visibility:hidden"><?= $ser_name; ?> - <?= $ser_price; ?></h1>
+                        <h1 class="as_heading" style="color:var(--primary-color); visibility:hidden"><?= $ser_name; ?> - <?= $ser_price; ?></h1>
                         <div class="as_service_detail_inner">
                             <img src="./admin/uploads/numerology/<?= $ser_image; ?>" alt="<?= $ser_name; ?>" class="img-responsive">
                         </div>
@@ -164,7 +121,7 @@ $map_status = $row['map_status'];
                 <div class="row">
                     <div class=" col-xxl-5 col-xl-6 col-lg-6 col-md-12">
                         <div class="as_service_detail_inner">
-                             <h1 class="as_heading" style="visibility: hidden;"><?= $sub_heading_2; ?></h1>
+                            <h1 class="as_heading" style="visibility: hidden;"><?= $sub_heading_2; ?></h1>
                             <img src="./admin/uploads/numerology/<?= $ser_image_2; ?>" alt="<?= $sub_heading_2; ?>" class="img-responsive">
 
                         </div>
@@ -172,11 +129,11 @@ $map_status = $row['map_status'];
                     <div class="offset-xxl-1 col-xxl-6 col-xl-6 col-lg-6 col-md-12">
                         <div class="as_service_detail_inner" id="para-18">
 
-                            <h1 class="as_heading"><?= $sub_heading_2; ?></h1> 
-                            <p class="as_font14" style="color: var(--gray-color);  text-align:justify !important"><?= $description_2; ?></p> 
-                             <a target="_blank" href="https://api.whatsapp.com/send?phone=7619377055&text=Hello! Can I get more info on this ?." class="as_btn">
-                              <img src="./assets/my-images/chat.png" alt="" style="width:35px;"> &nbsp;
-                            Chat With Us</a>
+                            <h1 class="as_heading"><?= $sub_heading_2; ?></h1>
+                            <p class="as_font14" style="color: var(--gray-color);  text-align:justify !important"><?= $description_2; ?></p>
+                            <a target="_blank" href="https://api.whatsapp.com/send?phone=7619377055&text=Hello! Can I get more info on this ?." class="as_btn">
+                                <img src="./assets/my-images/chat.png" alt="Cosmicenergies" style="width:35px;"> &nbsp;
+                                Chat With Us</a>
                         </div>
                     </div>
 
@@ -196,7 +153,7 @@ $map_status = $row['map_status'];
                         <div class="row" style="border: 1px solid #e0e0e0; padding: 20px;border-radius: 20px;">
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
                                 <div class="as_service_detail_inner">
-                                    <img src="assets/my-images/num-bottom.png" alt="" class="img-responsive">
+                                    <img src="assets/my-images/num-bottom.png" alt="Cosmicenergies" class="img-responsive">
 
                                 </div>
                             </div>
@@ -208,8 +165,8 @@ $map_status = $row['map_status'];
                                     <p class="as_font14" style="color: var(--gray-color);  font-size:18px !important; text-align:justify !important">"Discover your true path through personalized online numerology consultations. Align destiny, decisions, and success today."
                                     </p>
                                     <a target="_blank" href="https://api.whatsapp.com/send?phone=7619377055&text=Hello! Can I get more info on this ?." class="as_btn">
-                             <img src="./assets/my-images/chat.png" alt="" style="width:35px;">  &nbsp;
-                            Chat With Us</a>
+                                        <img src="./assets/my-images/chat.png" alt="Cosmicenergies" style="width:35px;"> &nbsp;
+                                        Chat With Us</a>
 
                                 </div>
                             </div>

@@ -1,0 +1,115 @@
+ 
+        .as_breadcrum_wrapper {
+            padding-top: 200px;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .as_banner_wrapper {
+            padding-top: 200px;
+        }
+
+        .button-disable .as_btn:after,
+        .as_btn:before {
+            border-left: 0px solid var(--secondary-color) !important;
+        }
+
+        .button-disable .as_btn:before {
+            border-right: 0px solid var(--secondary-color) !important;
+        }
+
+        .modal-body {
+            max-height: 500px;
+            overflow-y: auto;
+            color: var(--text2-color) !important;
+        }
+
+        .as_footer_wrapper a {
+            color: var(--white-color);
+            text-decoration: none;
+        }
+
+        .no-bottom-gap a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .as_breadcrum_wrapper a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }  
+            .slider-css {
+                position: relative;
+                width: 100%;
+                height: 400px; 
+                overflow: hidden;
+            }
+
+            .slider-css img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                animation: slideShow 4s ease-in-out infinite;
+            }
+
+            .slider-css img:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            .slider-css img:nth-child(2) {
+                animation-delay: 1s;
+            }
+
+            .slider-css img:nth-child(3) {
+                animation-delay: 2s;
+            }
+
+            .slider-css img:nth-child(4) {
+                animation-delay: 3s;
+            }
+
+            .slider-css img:nth-child(5) {
+                animation-delay: 4s;
+            }
+
+            .slider-css img:nth-child(6) {
+                animation-delay: 5;
+            }
+
+            .slider-css img:nth-child(7) {
+                animation-delay: 6;
+            }
+
+            @keyframes slideShow {
+                0% {
+                    opacity: 0;
+                }
+
+                10% {
+                    opacity: 1;
+                }
+
+                25% {
+                    opacity: 1;
+                }
+
+                35% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            } 

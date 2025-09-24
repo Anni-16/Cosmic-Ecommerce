@@ -64,53 +64,9 @@ $map_status    = $data['map_status'];
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-
-        input,
-        textarea,
-        select {
-            color: var(--primary-color) !important;
-            background-color: #fff !important;
-            width: 100%;
-        }
-
-        .MsoNormal{
-            font-size: 18px !important;
-        }
-
-        #para-18 p{
-            font-size: 18px !important;
-            text-align: left !important;
-        }
-    </style>
-
+    
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/vaastu-details-page.css" />
 </head>
 
 <body>
@@ -147,7 +103,7 @@ $map_status    = $data['map_status'];
                             <p class="as_font14" style="color: var(--gray-color);   text-align:justify !important"><?= $desc1 ?></p>
                             
                               <a target="_blank" href="https://api.whatsapp.com/send?phone=7619377055&text=Hello! Can I get more info on this ?." class="as_btn">
-                            <img src="./assets/my-images/chat.png" alt="" style="width:35px;">  &nbsp;
+                            <img src="./assets/my-images/chat.png" alt="Cosmicenergies" style="width:35px;">  &nbsp;
                             Chat With Us</a>
                         </div>
                     </div>
@@ -180,7 +136,7 @@ $map_status    = $data['map_status'];
                             <h1 class="as_heading"><?= $sub_heading_2 ?></h1>
                             <p class="as_font14" style="color: var(--gray-color);   text-align:justify !important"><?= $desc2 ?></p> 
                               <a target="_blank" href="https://api.whatsapp.com/send?phone=7619377055&text=Hello! Can I get more info on this ?." class="as_btn">
-                              <img src="./assets/my-images/chat.png" alt="" style="width:35px;">  &nbsp;
+                              <img src="./assets/my-images/chat.png" alt="Cosmicenergies" style="width:35px;">  &nbsp;
                             Chat With Us</a>
                         </div>
                     </div>
@@ -201,7 +157,7 @@ $map_status    = $data['map_status'];
                         <div class="row" style="border: 1px solid #e0e0e0; padding: 20px;border-radius: 20px;">
                             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
                                 <div class="as_service_detail_inner">
-                                    <img src="assets/my-images/vasstu.png" alt="" class="img-responsive">
+                                    <img src="assets/my-images/vasstu.png" alt="Cosmicenergies" class="img-responsive">
 
                                 </div>
                             </div>
@@ -213,7 +169,7 @@ $map_status    = $data['map_status'];
                                     <p class="as_font14" style="color: var(--gray-color);  font-size:18px !important; text-align:justify !important">Opt for a Map-Only Vaastu Consultation. No Personal Site Visit is required. You can get consultation online or by visiting our office.
                                     </p> 
                                     <a target="_blank" href="https://api.whatsapp.com/send?phone=7619377055&text=Hello! Can I get more info on this ?." class="as_btn">
-                                     <img src="./assets/my-images/chat.png" alt="" style="width:35px;"> &nbsp;    
+                                     <img src="./assets/my-images/chat.png" alt="Cosmicenergies" style="width:35px;"> &nbsp;    
                                     Get Map Consultation</a>
                                 </div>
                             </div>

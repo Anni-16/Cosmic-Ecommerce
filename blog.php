@@ -31,34 +31,8 @@ if (empty($session_id)) {
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-    </style>
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/blog-page.css" />
 
 </head>
 
@@ -77,7 +51,7 @@ if (empty($session_id)) {
                         <h1>Our Blogs</h1>
                         <ul class="breadcrumb" style="color:white; background:var(--white2-color);">
                             <li><a href="index.php" style="color: var(--primary-color); font-size:18px;  ">Home &nbsp;>> </a></li>
-                            <li><a href=" " style="color: var(--primary-color); font-size:18px;  ">&nbsp; Our Blogs </a></li>
+                            <li><a style="color: var(--primary-color); font-size:18px;  ">&nbsp; Our Blogs </a></li>
                         </ul>
                     </div>
                 </div>
@@ -107,12 +81,12 @@ if (empty($session_id)) {
                                         <div class="as_product_box">
                                             <div class="as_blog_img">
                                                 <a href="blog-detail.php?url=<?= $row['url']; ?>">
-                                                    <img src="./admin/uploads/blog/<?php echo $row['b_image']; ?>" alt="" class="img-responsive" style="width: 100%;  ">
+                                                    <img src="./admin/uploads/blog/<?php echo $row['b_image']; ?>" alt="<?= ($row['b_name']); ?>" class="img-responsive" style="width: 100%;  ">
                                                 </a>
                                                 <span class="as_btn"><?php echo date('j M, Y', strtotime($row['created_at'])); ?></span> <!-- Replace with dynamic date if available -->
                                             </div>
                                             <ul style="list-style: none; padding:0px;">
-                                                <li><a href="javascript:;"><img src="assets/images/svg/user.svg" alt="">&nbsp; By - Cosmicenergies</a></li>
+                                                <li><a href="javascript:;"><img src="assets/images/svg/user.svg" alt="Cosmicenergies">&nbsp; By - Cosmicenergies</a></li>
                                             </ul>
                                             <h4 class="as_subheading" style="color: var(--text2-color);">
                                                 <a href="blog-detail.php?url=<?= $row['url']; ?>">

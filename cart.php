@@ -53,65 +53,9 @@ try {
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        /* Border for all cells */
-        .table th,
-        .table td {
-            border: 1px solid var(--white2-color);
-            text-align: left;
-        }
-
-        /* Table header styling */
-        .table th {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-        }
-
-        /* Trash icon hover */
-        .table .close_pro i {
-            color: var(--primary-color);
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .table .close_pro i:hover {
-            color: red;
-        }
-    </style>
+    
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/cart-page.css" />
 
 </head>
 
@@ -130,7 +74,7 @@ try {
                         <h1>Cart</h1>
                         <ul class="breadcrumb" style="color:white; background:var(--white2-color);">
                             <li><a href="index.php" style="color: var(--primary-color); font-size:18px;  ">Home &nbsp;>> </a></li>
-                            <li><a href=" " style="color: var(--primary-color); font-size:18px;  ">&nbsp;Cart </a></li>
+                            <li><a  style="color: var(--primary-color); font-size:18px;  ">&nbsp;Cart </a></li>
                         </ul>
                     </div>
                 </div>

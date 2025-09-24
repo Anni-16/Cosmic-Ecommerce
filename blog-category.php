@@ -57,34 +57,8 @@ if (isset($_GET['url'])) {
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-    </style>
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/blog-category-page.css" />
 
 </head>
 
@@ -130,7 +104,7 @@ if (isset($_GET['url'])) {
                                         <div class="as_product_box">
                                             <div class="as_blog_img">
                                                 <a href="blog-detail.php?url=<?= $row['url']; ?>">
-                                                    <img src="./admin/uploads/blog/<?php echo $row['b_image']; ?>" alt="" class="img-responsive"
+                                                    <img src="./admin/uploads/blog/<?php echo $row['b_image']; ?>" alt=" <?= ($row['b_name']); ?>" class="img-responsive"
                                                         style="width: 100%;  ">
                                                 </a>
                                                 <span class="as_btn"><?php echo date('j M, Y', strtotime($row['created_at'])); ?></span> <!-- Replace with dynamic date if available -->

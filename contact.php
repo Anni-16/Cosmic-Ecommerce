@@ -30,40 +30,8 @@ if (empty($session_id)) {
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-
-        input,
-        textarea,
-        select {
-            color: var(--primary-color) !important;
-        }
-    </style>
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/contact-page.css" />
 </head>
 
 <body>
@@ -119,7 +87,7 @@ if (empty($session_id)) {
                                             <!-- Phone -->
                                             <div class="col-xl-4 col-lg-12 col-md-6 col-sm-6">
                                                 <div class="as_info_box">
-                                                    <span class="as_icon"><img src="assets/images/svg/call1.svg" alt=""></span>
+                                                    <span class="as_icon"><img src="assets/images/svg/call1.svg" alt="Cosmicenergies"></span>
                                                     <div class="as_info">
                                                         <h5>Call Us</h5>
                                                         <p class="as_margin0 as_font14" style="font-size:18px;  "><?= ($phone_no_1); ?></p>
@@ -130,7 +98,7 @@ if (empty($session_id)) {
                                             <!-- Email -->
                                             <div class="col-xl-4 col-lg-12 col-md-6 col-sm-6">
                                                 <div class="as_info_box">
-                                                    <span class="as_icon"><img src="assets/images/svg/mail.svg" alt=""></span>
+                                                    <span class="as_icon"><img src="assets/images/svg/mail.svg" alt="Cosmicenergies"></span>
                                                     <div class="as_info">
                                                         <h5>Mail Us</h5>
                                                         <p class="as_margin0 as_font14" style="font-size:18px;  "><a href="mailto:<?= ($email); ?>"><?= ($email); ?></a></p>
@@ -140,7 +108,7 @@ if (empty($session_id)) {
                                             <!-- Address -->
                                             <div class="col-xl-4 col-lg-12 col-md-6 col-sm-6">
                                                 <div class="as_info_box">
-                                                    <span class="as_icon"><img src="assets/images/svg/my-map.svg" alt=""></span>
+                                                    <span class="as_icon"><img src="assets/images/svg/my-map.svg" alt="Cosmicenergies"></span>
                                                     <div class="as_info">
                                                         <h5>Location</h5>
                                                         <p class="as_margin0 as_font14" style="font-size:18px;  "><?= nl2br(($address)); ?></p>

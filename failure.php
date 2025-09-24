@@ -19,102 +19,16 @@
     <link rel="stylesheet" type="text/css" href="assets/css/cart.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-
+    
     <!-- This Google Font used in Captions -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/failure-page.css" />
 
 </head>
 
 <body>
-    <style>
-        body {
-            background-color: var(--secondary-color);
-        }
-
-        .panel {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        h1.text-center {
-            font-size: 2rem;
-            color: red;
-        }
-
-        p.text-center {
-            font-size: 1.2rem;
-            color: #6c757d;
-        }
-
-        .table {
-            margin-top: 20px;
-        }
-
-        .table td {
-            vertical-align: middle;
-        }
-
-        .btn {
-            font-size: 16px;
-            border-radius: 4px;
-        }
-
-        /* === RIBBON STYLING === */
-        .invoice-ribbon {
-            position: relative;
-            height: 0;
-            z-index: 1;
-        }
-
-        .ribbon-inner {
-            background: red;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            transform: rotate(45deg);
-            position: absolute;
-            top: 20px;
-            right: -100px;
-            width: 250px;
-            padding: 8px 0;
-            font-size: 14px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        /* === BUTTON HOVER === */
-        .btn:hover {
-            opacity: 0.9;
-        }
-
-        /* === PRINT BUTTON (Optional Icon Handling) === */
-        .print i.fa-print {
-            margin-right: 6px;
-        }
-
-        @media screen and (min-width: 1400px) {
-
-            .container,
-            .container-lg,
-            .container-md,
-            .container-sm,
-            .container-xl,
-            .container-xxl {
-                max-width: 1320px;
-            }
-        }
-
-        @media only screen and (min-width: 993px) {
-            .container {
-                width: 90%;
-            }
-        }
-    </style>
-
+   
     <div class="as_main_wrapper" style="background:#fff">
         <!-- START HEADER -->
         <?php include('include/header.php') ?>

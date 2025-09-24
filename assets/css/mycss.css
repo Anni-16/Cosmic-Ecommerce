@@ -145,9 +145,16 @@
     padding-top:6px;
 }
 
+#font-16{
+    font-size:16px !important;
+}
+
 @media screen and (max-width:480px) {
     .as_menu_wrapper2 { 
         padding-right: 30px; 
     }
+       .news-section-mobile-hide{
+    display:none !important;
+}
 }
 

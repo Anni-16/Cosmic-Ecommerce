@@ -1,0 +1,84 @@
+ 
+        .as_main_wrapper {
+            background: var(--white2-color);
+        }
+
+        .panel {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 150px 0 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1.text-center {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        p.text-center {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        .table {
+            margin-top: 20px;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+        .as_btn {
+            background-color: var(--secondary-color);
+            color: #fff;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            margin: 0 5px;
+        }
+
+        .as_btn:hover {
+            background-color: #218838;
+        }
+
+        .invoice-ribbon {
+            position: relative;
+            height: 0;
+            z-index: 1;
+        }
+
+        .ribbon-inner {
+            background: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transform: rotate(45deg);
+            position: absolute;
+            top: 20px;
+            right: -100px;
+            width: 250px;
+            padding: 8px 0;
+            font-size: 14px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .print i.fa-print {
+            margin-right: 6px;
+        }
+
+        @media (max-width: 600px) {
+            .panel {
+                margin: 100px 1rem;
+                padding: 1rem;
+            }
+
+            h1.text-center {
+                font-size: 1.5rem;
+            }
+
+            p.text-center {
+                font-size: 1rem;
+            }
+        } 

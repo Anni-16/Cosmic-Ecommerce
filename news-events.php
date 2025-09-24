@@ -34,127 +34,9 @@ if (empty($session_id)) {
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .button-disable .as_btn:after,
-        .as_btn:before {
-            border-left: 0px solid var(--secondary-color) !important;
-        }
-
-        .button-disable .as_btn:before {
-            border-right: 0px solid var(--secondary-color) !important;
-        }
-
-        .modal-body {
-            max-height: 500px;
-            overflow-y: auto;
-            color: var(--text2-color) !important;
-        }
-
-        .as_footer_wrapper a {
-            color: var(--white-color);
-            text-decoration: none;
-        }
-
-        .no-bottom-gap a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .as_breadcrum_wrapper a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-    </style>
-
-
-<style>
-            .slider-css {
-                position: relative;
-                width: 100%;
-                height: 400px; 
-                overflow: hidden;
-            }
-
-            .slider-css img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                opacity: 0;
-                animation: slideShow 4s ease-in-out infinite;
-            }
-
-            .slider-css img:nth-child(1) {
-                animation-delay: 0s;
-            }
-
-            .slider-css img:nth-child(2) {
-                animation-delay: 1s;
-            }
-
-            .slider-css img:nth-child(3) {
-                animation-delay: 2s;
-            }
-
-            .slider-css img:nth-child(4) {
-                animation-delay: 3s;
-            }
-
-            .slider-css img:nth-child(5) {
-                animation-delay: 4s;
-            }
-
-            .slider-css img:nth-child(6) {
-                animation-delay: 5;
-            }
-
-            .slider-css img:nth-child(7) {
-                animation-delay: 6;
-            }
-
-            @keyframes slideShow {
-                0% {
-                    opacity: 0;
-                }
-
-                10% {
-                    opacity: 1;
-                }
-
-                25% {
-                    opacity: 1;
-                }
-
-                35% {
-                    opacity: 0;
-                }
-
-                100% {
-                    opacity: 0;
-                }
-            }
-        </style>
+    
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/news-events-page.css" />
 </head>
 
 <body>
@@ -198,10 +80,10 @@ if (empty($session_id)) {
                                 foreach ($result as $index => $row) : ?>
                                     <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                                         <div class="as_product_box">
-                                            <div class="as_blog_img">
-                                                <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="" class="img-responsive" style="width: 100%;">
+                                            <div class="as_blog_img" data-bs-toggle="modal" data-bs-target="#blogModal<?= $index; ?>">
+                                                <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%;">
                                             </div>
-                                            <h4 class="as_subheading" style="color: var(--text2-color);"><?= $row['b_name']; ?></h4>
+                                            <h6 class=" " id="font-16" style="color: var(--text2-color);"><?= $row['b_name']; ?></h6>
 
                                             <!-- Read More Button -->
                                             <button type="button" class="btn btn-primary " style="background-color:var(--primary-color); border:none;" data-bs-toggle="modal" data-bs-target="#blogModal<?= $index; ?>">
@@ -219,14 +101,14 @@ if (empty($session_id)) {
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="as_blog_img slider-css"  >
-                                                    <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="" class="img-responsive" style="width: 100%; padding:20px;">
+                                                    <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;" >
                                                     <?php
                                                     // Fetch gallery images for this news item
                                                     $stmt_gallery = $pdo->prepare("SELECT * FROM tbl_news_photo WHERE news_id = ?");
                                                     $stmt_gallery->execute([$row['news_id']]);
                                                     $gallery_images = $stmt_gallery->fetchAll(PDO::FETCH_ASSOC);
                                                     foreach ($gallery_images as $g) : ?>
-                                                        <img src="./admin/uploads/news/gallery/<?php echo $g['photo']; ?>" alt="" class="img-responsive" style="width: 100%; padding:20px;">
+                                                        <img src="./admin/uploads/news/gallery/<?php echo $g['photo']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;">
                                                     <?php endforeach; ?>
                                                 </div>
                                                 <div class="modal-body" style="color: var(--text2-color);">

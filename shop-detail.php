@@ -37,12 +37,13 @@ $a_id = $product['a_id'];
 <head>
     <title>Cosmicenergies | <?= $product['a_name']; ?> | <?= $product['meta_title']; ?></title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="<?= $product['meta_title']; ?>">
     <meta name="keyword" content="<?= $product['meta_keyword']; ?>">
     <meta name="description" content="<?= $product['meta_descr']; ?>">
     <!-- stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/js/plugin/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="assets/js/plugin/airdatepicker/datepicker.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
@@ -53,169 +54,9 @@ $a_id = $product['a_id'];
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-
-    <style>
-        .as_breadcrum_wrapper {
-            padding-top: 200px;
-        }
-
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .as_banner_wrapper {
-            padding-top: 200px;
-        }
-
-        .as_tab_wrapper .nav-tabs>li>button:hover,
-        .as_tab_wrapper .nav-tabs>li>button {
-            color: var(--primary-color);
-        }
-
-        .as_tab_wrapper .nav-tabs>li>button:hover,
-        .as_tab_wrapper .nav-tabs>li>button.active {
-            background-color: var(--primary-color) !important;
-            color: var(--white-color);
-        }
-
-        .main-image {
-            width: 100%;
-            margin: 20px auto;
-        }
-
-        .big-image {
-            width: 100%;
-            overflow: hidden;
-            cursor: zoom-in;
-            border: 1px solid #ddd;
-            position: relative;
-        }
-
-        .big-image img {
-            width: 100%;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .thumbnail-image {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-            position: relative;
-        }
-
-        .thumb-slider-wrapper {
-            overflow: hidden;
-            width: 400px;
-            /* 4 thumbnails * 100px each */
-        }
-
-        .thumb-slider {
-            display: flex;
-            transition: transform 0.3s ease;
-        }
-
-        .as_prod_img {
-            flex: 0 0 100px;
-            /* Thumbnail width */
-            margin-right: 10px;
-        }
-
-        .thumb-img {
-            width: 100px;
-            height: auto;
-            cursor: pointer;
-        }
-
-        .thumb-arrow {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .as_prod_img {
-            flex: 0 0 auto;
-            margin-right: 10px;
-            border: 2px solid transparent;
-            cursor: pointer;
-            width: 80px;
-        }
-
-        .as_prod_img img.thumb-img {
-            width: 100%;
-            display: block;
-        }
-
-        .zoom-display {
-            display: none;
-            position: absolute;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            overflow: hidden;
-            z-index: 999;
-            background-repeat: no-repeat;
-            background-size: 250%;
-            /* or whatever zoom level you want */
-        }
-
-
-        .zoom-display img {
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .zoom-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        @media screen and (max-width:480px) {
-            .zoom-container {
-                display: none;
-            }
-
-            #cart-icons-2 {
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .zoom-display {
-                position: absolute;
-                left: 0 !important;
-                right: 0;
-                margin: 0 auto;
-                top: auto;
-            }
-
-            .thumbnail-image {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .thumb-slider-wrapper {
-                width: 100%;
-                overflow-x: auto;
-            }
-
-            .thumb-slider {
-                justify-content: start;
-            }
-
-            .thumb-arrow {
-                display: none !important;
-            }
-        }
-    </style>
-
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/shop-details-page.css" />
+  
 </head>
 
 <body>
@@ -260,16 +101,16 @@ $a_id = $product['a_id'];
 
                                                     <div class="main-image">
                                                         <div class="big-image zoom-container">
-                                                            <img src="./admin/uploads/products/<?php echo ($product['a_photo']); ?>" alt="Big Image" class="img-responsive food-img" id="big-img" />
+                                                            <img src="./admin/uploads/products/<?php echo ($product['a_photo']); ?>" alt="<?= ($product['a_name']); ?>" class="img-responsive food-img" id="big-img" />
                                                         </div>
 
                                                         <div class="thumbnail-image">
                                                             <button class="thumb-arrow left">
-                                                                <img src="./assets/my-images/my-arrow.png" alt="" style="transform: rotate(-180deg);">
+                                                                <img src="./assets/my-images/my-arrow.png" alt="Cosmicenergies" style="transform: rotate(-180deg);">
                                                             </button>
                                                             <div class="thumb-slider-wrapper">
                                                                 <div class="thumb-slider">
-                                                                    <div class="as_prod_img"><img src="./admin/uploads/products/<?php echo ($product['a_photo']); ?>" alt="" class="img-responsive thumb-img"></div>
+                                                                    <div class="as_prod_img"><img src="./admin/uploads/products/<?php echo ($product['a_photo']); ?>" alt="<?= ($product['a_name']); ?>" class="img-responsive thumb-img"></div>
                                                                     <?php
                                                                     // Fetch additional photos for accessories
                                                                     $photo_query = $pdo->prepare("SELECT * FROM tbl_product_photo WHERE a_id=?");
@@ -278,12 +119,12 @@ $a_id = $product['a_id'];
                                                                     foreach ($photos as $photo) {
                                                                     ?>
                                                                         <!-- Dynamically loaded image with class -->
-                                                                        <div class="as_prod_img"><img src="./admin/uploads/products/<?php echo $photo['photo']; ?>" alt="" class="img-responsive thumb-img"></div>
+                                                                        <div class="as_prod_img"><img src="./admin/uploads/products/<?php echo $photo['photo']; ?>" alt="<?= ($product['a_name']); ?>" class="img-responsive thumb-img"></div>
                                                                     <?php } ?>
 
                                                                 </div>
                                                             </div>
-                                                            <button class="thumb-arrow right"><img src="./assets/my-images/my-arrow.png" alt=""></button>
+                                                            <button class="thumb-arrow right"><img src="./assets/my-images/my-arrow.png" alt="Cosmicenergies"></button>
                                                         </div>
 
                                                     </div>
@@ -338,7 +179,7 @@ $a_id = $product['a_id'];
 
                                                         </div>
                                                         <div style="margin-top: -18px; padding-top: 0;">
-                                                            <button type="submit" id="button-cart" data-loading-text="Loading..." class="as_btn" style="background: var(--secondary-color);  margin-top: 18px;" value=""><a href="cart.php">Checkout</a></button>
+                                                            <button type="submit" id="button-cart" data-loading-text="Loading..." class="as_btn" style="background: var(--secondary-color);  margin-top: 40px;" value=""><a href="cart.php">Checkout</a></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -417,7 +258,7 @@ $a_id = $product['a_id'];
 
                         <div class="row as_product_slider" id="product-list">
                             <?php
-                            $statement = $pdo->prepare(" SELECT * FROM tbl_product WHERE a_is_featured = 1 ORDER BY a_name ASC");
+                            $statement = $pdo->prepare(" SELECT * FROM tbl_product WHERE a_is_featured = 1 ORDER BY a_name ASC LIMIT 12");
                             $statement->execute();
                             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -427,7 +268,7 @@ $a_id = $product['a_id'];
                                     <div class="as_product_box product-card-animation" style="height:480px;">
                                         <div class="as_product_img product-img">
                                             <a href="shop-detail.php?url=<?php echo $row['url']; ?>">
-                                                <img src="./admin/uploads/products/<?php echo $row['a_photo']; ?>" style="width: 400px;" alt="Product Image">
+                                                <img src="./admin/uploads/products/<?php echo $row['a_photo']; ?>" style="width: 400px;" alt="<?php echo $row['a_name']; ?>">
                                             </a>
                                         </div>
                                         <div class="text-center hover-hide">

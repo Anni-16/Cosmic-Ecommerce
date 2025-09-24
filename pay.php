@@ -130,43 +130,8 @@ if (isset($getPaymentInfo['redirectUrl']) && !empty($getPaymentInfo['redirectUrl
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
     <script src="https://mercury.phonepe.com/web/bundle/checkout.js"></script>
-    <style>
-        .as_main_wrapper {
-            background: var(--white2-color);
-        }
-        .payment-section {
-            /* margin-top: 150px; */
-            /* margin-bottom: 100px; */
-            text-align: center;
-            background-color: #fff;
-        }
-        .payment-section h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .as_btn {
-            background-color: var(--secondary-color) !important;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            color: #fff;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .as_btn:hover {
-            background-color: #218838;
-        }
-        @media (max-width: 600px) {
-            .payment-section {
-                margin: 1rem;
-                padding: 1rem;
-            }
-            .payment-section h3 {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/pay-page.css">
 </head>
 <body>
     <div class="as_main_wrapper">

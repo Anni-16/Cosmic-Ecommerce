@@ -1,8 +1,8 @@
 <div class="main-header">
     <div class="top-header" style="background-color: var(--white2-color);  ">
         <div class="row" style="margin-bottom: 0;">
-            <div class="col-lg-12">
-                <div class="as_info_detail">
+            <div class="col-lg-12" >
+                <div class="as_info_detail" >
                     <?php
                     $statement = $pdo->prepare("SELECT * FROM tbl_contact WHERE id=1");
                     $statement->execute();
@@ -18,12 +18,12 @@
                     }
                     ?>
 
-                    <ul>
+                    <ul style="justify-content: center; display:flex">
                         <li>
                             <a href="tel:<?php echo ($phone_no_1); ?>">
                                 <div class="as_infobox" style="color: var(--primary-color);">
                                     <span class="as_infoicon">
-                                        <img src="./assets/my-images/chat-green.png" alt="" style="width: 20px;">
+                                        <img src="./assets/my-images/chat-green.png" alt="Cosmicenergies" style="width: 20px;">
                                     </span>
                                     <?php echo ($phone_no_1); ?>
                                 </div>
@@ -41,7 +41,7 @@
                         </li>
                     </ul>
 
-                    <div class="as_right_info">
+                    <div class="as_right_info" id="icon-header-center" style="justify-content: center !important;">
                         <div class="as_share_box2">
                             <ul>
                                 <?php
@@ -76,17 +76,17 @@
     <section class="as_header_wrapper" style="background-color: var(--primary-color); background-size: cover; background-position: top;">
         <div class="as_logo" style="background-color: var(--primary-color); padding: 0 !important; margin: 0;" id="mobile-header-none2">
             <a href="index.php" style="display: block; padding: 0; margin: 0;">
-                <img src="assets/my-images/new-logo2.png" alt="" style="width: 100%; " id="logo-hide-mobile">
-                <img src="assets/images/logo.png" alt="" style="width: 100px;  " id="logo-show-mobile">
+                <img src="assets/my-images/new-logo2.png" alt="Cosmicenergies" style="width: 100%; " id="logo-hide-mobile">
+                <img src="assets/images/logo.png" alt="Cosmicenergies" style="width: 100px;  " id="logo-show-mobile">
             </a>
         </div>
         <div class="as_header_detail" style="background: var(--primary-color);">
             <div class="as_menu_wrapper2" style="display: flex; justify-content: space-between; ">
                 <span class="as_toggle bg_overlay" id="mobile-toggle">
                     <div class="" id="logo-show-mobile">
-                        <img src="./assets/my-images/footer-logo.png" alt="" style="width: 70px; padding: 20px 0;">
+                        <img src="./assets/my-images/footer-logo.png" alt="Cosmicenergies" style="width: 70px; padding: 20px 0;">
                     </div>
-                    <img src="assets/images/svg/menu.svg" alt="" class="as_cart_wrapper">
+                    <img src="assets/images/svg/menu.svg" alt="Cosmicenergies" class="as_cart_wrapper">
                 </span>
                 <div class="as_menu">
 
@@ -237,15 +237,15 @@
                 <div class="as_right_info">
                     <div id="cart-my">
                         <div class="nav">
-                            <div class="box">
+                            <a class="box" href="cart.php">
                                 <div class="cart-count"><?php echo ($cart_count); ?></div>
-                                <img src="assets/images/svg/cart.svg" alt="" name="cart" id="cart-icon" style=" margin-top: -5px;">
-                            </div>
+                                <img src="assets/images/svg/cart.svg" alt="Cosmicenergies" name="cart" id="cart-icon" style=" margin-top: -5px;">
+                            </a>
 
-                            <div class="cart">
+                            <!-- <div class="cart">
                                 <div class="cart-title">Cart Items</div>
                                 <div class="cart-content">
-                                    <!-- Cart items will be populated dynamically, e.g., via JavaScript or PHP -->
+                                    Cart items will be populated dynamically, e.g., via JavaScript or PHP
                                 </div>
 
                                 <div class="total">
@@ -258,7 +258,7 @@
                                 </a>
 
                                 <ion-icon name="close" id="cart-close"></ion-icon>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="as_footer_widget">
                         <div class="as_footer_logo">
-                            <a href="index.php"><img src="./assets/my-images/footer-logo.png" alt="" style="width: 100px;"></a>
+                            <a href="index.php"><img src="./assets/my-images/footer-logo.png" alt="Cosmicenergies" style="width: 100px;"></a>
                         </div>
                         <p style="color: var(--white-color); font-size:16px;">our consultations are designed to be thoughtful, accurate, and deeply aligned with your life journey.</p>
 
@@ -207,13 +207,13 @@
 
                             <ul class="as_contact_list">
                                 <li style="color: var(--white-color);  font-size:16px;  ">
-                                    <img src="assets/images/svg/map.svg" alt="">
+                                    <img src="assets/images/svg/map.svg" alt="Cosmicenergies">
                                     <a href="contact.php">
                                         <p><?php echo ($address); ?></p>
                                     </a>
                                 </li>
                                 <li style="color: var(--white-color); font-size:16px;  ">
-                                    <img src="assets/images/svg/address.svg" alt="">
+                                    <img src="assets/images/svg/address.svg" alt="Cosmicenergies">
                                     <p>
                                         <a href="mailto:<?php echo ($email); ?>">
                                             <span class="__cf_email__"><?php echo ($email); ?></span>
@@ -221,7 +221,7 @@
                                     </p>
                                 </li>
                                 <li style="color: var(--white-color); font-size:16px;  ">
-                                <img src="./assets/my-images/chat-yellow.png" alt="" style="width: 20px;">
+                                <img src="./assets/my-images/chat-yellow.png" alt="Cosmicenergies" style="width: 20px;">
                                     <p>
                                         <a href="https://api.whatsapp.com/send?phone=<?php echo ($phone_no_1); ?>&text=Hello! Can I get more info on this ?.">
                                         <?php echo ($phone_no_1); ?>

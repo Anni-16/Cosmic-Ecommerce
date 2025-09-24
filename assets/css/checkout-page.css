@@ -1,0 +1,180 @@
+ 
+        /* (Your existing styles unchanged) */
+        .as_breadcrum_wrapper {
+            padding-top: 200px;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .as_banner_wrapper {
+            padding-top: 200px;
+        }
+
+        .button-disable .as_btn:after,
+        .as_btn:before {
+            border-left: 0px solid var(--secondary-color) !important;
+        }
+
+        .button-disable .as_btn:before {
+            border-right: 0px solid var(--secondary-color) !important;
+        }
+
+        input,
+        textarea,
+        select {
+            color: var(--primary-color) !important;
+        }
+
+        /* Checkout Cart styles */
+        .your-order-area h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .your-order-wrap {
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .your-order-info-wrap {
+            margin-bottom: 1rem;
+        }
+
+        .your-order-info ul {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #444;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .your-order-middle ul li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: #555;
+            padding: 0.25rem 0;
+        }
+
+        .your-order-middle ul li span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .order-subtotal ul {
+            padding-top: 0.5rem;
+        }
+
+        .order-shipping ul li {
+            font-size: 0.875rem;
+            color: #555;
+        }
+
+        .order-shipping ul li p {
+            font-style: italic;
+            color: #777;
+            margin: 0.25rem 0 0;
+        }
+
+        .order-total ul {
+            padding-top: 0.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .payment-method {
+            margin-top: 1.5rem;
+        }
+
+        .pay-top {
+            margin-bottom: 1rem;
+        }
+
+        .pay-top input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        .pay-top label {
+            font-size: 0.9rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .pay-top label img {
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+
+        .pay-top label a {
+            text-decoration: none;
+            margin-left: 0.5rem;
+        }
+
+        .pay-top label a:hover {
+            text-decoration: underline;
+        }
+
+        .payment-box {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .Place-order {
+            margin-top: 1.5rem;
+            text-align: right;
+        }
+
+        .Place-order a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .Place-order a:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 600px) {
+            .your-order-area {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            .your-order-wrap {
+                padding: 1rem;
+            }
+
+            .your-order-area h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        .as_btn{
+            background-color: var(--secondary-color) !important;
+        }
+
+        .as_btn:after, .as_btn:before { 
+            border-left: 15px solid var(--secondary-color); 
+        }
+        .as_btn:after, .as_btn:before {
+            border-left: 15px solid var(--secondary-color);  
+        } 
