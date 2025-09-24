@@ -1,5 +1,15 @@
 <?php
 include('admin/inc/config.php');
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Get session ID
+$session_id = session_id();
+if (empty($session_id)) {
+    die('Session not started.');
+}
 
 // Validate category URL
 if (isset($_GET['cat_url']) && !empty($_GET['cat_url'])) {
@@ -407,7 +417,7 @@ if (isset($_GET['cat_url']) && !empty($_GET['cat_url'])) {
                                                         </h4>
                                                         <span class="as_price">₹ <?php echo $product['a_current_price']; ?></span>
                                                         <div class="show-animation">
-                                                            <a href="shop-detail.php?url=<?php echo $product['url']; ?>" class="as_btn" style="background-color: var(--primary-color);">Buy Now</a>
+                                                            <a href="shop-detail.php?url=<?php echo $product['url']; ?>" class="as_btn" style="background-color: var(--primary-color);">View Details</a>
                                                         </div>
                                                     </div>
                                                 </div>

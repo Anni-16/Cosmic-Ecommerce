@@ -20,11 +20,13 @@ $image2 = $row['image2'] ?? '';
 <html lang="en">
 
 <head>
-    <title>Cosmicenergies | Numerology Website | About Us</title>
     <meta charset="UTF-8">
+    <title>Cosmicenergies - About | <?= $meta_title; ?></title>
+    <meta name="title" content="<?= $meta_title; ?>">
+    <meta name="keyword" content="<?= $meta_keyword; ?>">
+    <meta name="description" content="<?= $meta_desc; ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmicenergies | Numerology Website | Home</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

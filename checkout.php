@@ -23,8 +23,7 @@ try {
     foreach ($cart_items as $item) {
         $subtotal += (float)$item['product_price'] * (int)$item['quantity'];
     }
-    $gst = $subtotal * 0.18;
-    $total_with_gst = $subtotal + $gst;
+    
 } catch (Throwable $e) {
     die('Error fetching cart data: ' . $e->getMessage());
 }
@@ -331,31 +330,13 @@ try {
                                                 <div class="your-order-middle  " style="border-top: 1px solid  var(--primary-color); padding-top:0px;">
                                                     <ul style="padding-top: 20px;">
                                                         <li class="d-flex justify-content-between">
-                                                            <h6 style="color:var(--primary-color);">Subtotal</h6>
+                                                            <h6 style="color:var(--primary-color);">Total</h6>
                                                             <h6 style="color:var(--primary-color);">₹<?= number_format($subtotal, 2) ?></h6>
                                                             <input type="hidden" name="subtotal" value="<?= number_format($subtotal, 2, '.', '') ?>">
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="your-order-middle" style="border-top: 1px solid  var(--primary-color); padding-top:0px;">
-                                                    <ul style="padding-top: 20px;">
-                                                        <li>
-                                                            <h6 style="color:var(--primary-color);">GST (18%)</h6>
-                                                            <h6 style="color:var(--primary-color);">₹<?= number_format($gst, 2) ?></h6>
-                                                            <input type="hidden" name="gst" value="<?= number_format($gst, 2, '.', '') ?>">
-                                                        </li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="your-order-middle" style="border-top: 1px solid  var(--primary-color); padding-top:10px;">
-                                                    <ul>
-                                                        <li >
-                                                            <h5 style="color:var(--primary-color);">Total</h5>
-                                                            <h5 style="color:var(--primary-color);">₹<?= number_format($total_with_gst, 2) ?></h5>
-                                                            <input type="hidden" name="total" value="<?= number_format($total_with_gst, 2, '.', '') ?>">
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                               
                                             </div>
                                         </div>
 

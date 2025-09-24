@@ -1,6 +1,17 @@
 <?php
 require_once('admin/inc/config.php');
 
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Get session ID
+$session_id = session_id();
+if (empty($session_id)) {
+    die('Session not started.');
+}
+
 if (!isset($_GET['url']) || empty($_GET['url'])) {
     echo "Product not found.";
     exit;
@@ -30,8 +41,8 @@ $a_id = $product['a_id'];
     <meta name="title" content="<?= $product['meta_title']; ?>">
     <meta name="keyword" content="<?= $product['meta_keyword']; ?>">
     <meta name="description" content="<?= $product['meta_descr']; ?>">
-   <!-- stylesheet -->
-   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/js/plugin/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="assets/js/plugin/airdatepicker/datepicker.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
@@ -61,7 +72,7 @@ $a_id = $product['a_id'];
         .as_banner_wrapper {
             padding-top: 200px;
         }
- 
+
         .as_tab_wrapper .nav-tabs>li>button:hover,
         .as_tab_wrapper .nav-tabs>li>button {
             color: var(--primary-color);
@@ -203,7 +214,6 @@ $a_id = $product['a_id'];
                 display: none !important;
             }
         }
- 
     </style>
 
 </head>
@@ -246,7 +256,7 @@ $a_id = $product['a_id'];
 
                                         <div class="col-lg-9">
                                             <div class="row">
-                                                <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="col-lg-5 col-md-4 col-sm-12">
 
                                                     <div class="main-image">
                                                         <div class="big-image zoom-container">
@@ -282,7 +292,7 @@ $a_id = $product['a_id'];
 
                                                 </div>
 
-                                                <div class="col-lg-9 col-md-8 col-sm-12">
+                                                <div class="col-lg-7 col-md-8 col-sm-12">
                                                     <div>
                                                         <div class="zoom-container" id="zoomContainer"></div>
                                                     </div>
@@ -322,9 +332,13 @@ $a_id = $product['a_id'];
                                                                     <input type="hidden" name="product_image" value="<?= htmlspecialchars($product['a_photo']) ?>">
                                                                     <input type="hidden" name="product_price" value="<?= htmlspecialchars($product['a_current_price']) ?>">
                                                                     <input type="hidden" name="quantity" id="formQuantity" value="1">
-                                                                    <button type="submit" id="button-cart" data-loading-text="Loading..." class="as_btn" style="background: var(--secondary-color);  margin-top: 18px;" value="">Buy Now</button>
+                                                                    <button type="submit" id="button-cart" data-loading-text="Loading..." class="as_btn" style="background: var(--secondary-color);  margin-top: 18px; font-size:14px !important;" value="">Add To Cart</button>
                                                                 </form>
                                                             </div>
+
+                                                        </div>
+                                                        <div style="margin-top: -18px; padding-top: 0;">
+                                                            <button type="submit" id="button-cart" data-loading-text="Loading..." class="as_btn" style="background: var(--secondary-color);  margin-top: 18px;" value=""><a href="cart.php">Buy Now</a></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -431,8 +445,8 @@ $a_id = $product['a_id'];
                                                 </a>
                                             </h4>
                                             <span class="as_price">₹ <?php echo $row['a_current_price']; ?></span>
-                                            <div class="show-animation" >
-                                                <a href="shop-detail.php?url=<?php echo $row['url']; ?>" class="as_btn" style="background-color: var(--primary-color);">Buy Now</a>
+                                            <div class="show-animation">
+                                                <a href="shop-detail.php?url=<?php echo $row['url']; ?>" class="as_btn" style="background-color: var(--primary-color);">View Details</a>
                                             </div>
                                         </div>
                                     </div>
@@ -557,7 +571,7 @@ $a_id = $product['a_id'];
                             if (response.cart_count !== undefined) {
                                 $('.cart-count').text(response.cart_count);
                                 // Redirect to cart.php
-                                window.location.href = 'cart.php';
+                                window.location.href = 'shop.php';
                             }
                         } else {
                             alert(response.message);
@@ -640,7 +654,7 @@ $a_id = $product['a_id'];
 
         leftArrow.addEventListener('click', scrollLeft);
         rightArrow.addEventListener('click', scrollRight);
-    </script> 
+    </script>
     <script>
         const bigImg = document.getElementById('big-img');
         const zoomDisplay = document.getElementById('zoom-display');

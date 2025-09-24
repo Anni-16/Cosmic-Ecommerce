@@ -32,18 +32,18 @@ if (isset($_POST['form_status'])) {
             $pdo->beginTransaction();
 
             // Update order status
-            $stmt = $pdo->prepare("UPDATE tbl_order SET order_status = ? WHERE id = ?");
+            $stmt = $pdo->prepare("UPDATE tbl_orders SET order_status = ? WHERE id = ?");
             $stmt->execute([$new_status, $order_id]);
 
             // Fetch order and customer info
-            $stmt = $pdo->prepare("SELECT * FROM tbl_order WHERE id = ?");
+            $stmt = $pdo->prepare("SELECT * FROM tbl_orders WHERE id = ?");
             $stmt->execute([$order_id]);
             $order = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($order && in_array($new_status, ['Shipped', 'Delivered'])) {
                 $cust_email = $order['customer_email'];
                 $cust_name = $order['customer_name'];
-                $order_code = $order['order_id'];
+                $order_code = $order['merchant_order_id'];
 
                 // Fetch products in this order
                 $item_stmt = $pdo->prepare("SELECT product_name FROM tbl_order_items WHERE order_id = ?");
@@ -139,7 +139,7 @@ if (isset($_POST['form_status'])) {
                         <tbody>
                             <?php
                             $i = 0;
-                            $orders = $pdo->query("SELECT * FROM tbl_order ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
+                            $orders = $pdo->query("SELECT * FROM tbl_orders ORDER BY id DESC")->fetchAll(PDO::FETCH_ASSOC);
                             foreach ($orders as $order) {
                                 $items_stmt = $pdo->prepare("SELECT * FROM tbl_order_items WHERE order_id = ?");
                                 $items_stmt->execute([$order['id']]);
@@ -150,16 +150,16 @@ if (isset($_POST['form_status'])) {
                                     ?>
                                     <tr class="<?php echo ($order['payment_status'] == 'Success') ? 'bg-g' : 'bg-r'; ?>">
                                         <td><?= $i; ?></td>
-                                        <td><?= ($order['order_id']); ?></td>
+                                        <td><?= ($order['merchant_order_id']); ?></td>
                                         <td>
                                             <?= ($order['customer_name']) ?><br>
                                             <?= ($order['customer_email']) ?><br>
-                                            <?= ($order['customer_phone']) ?>
+                                            <?= ($order['customer_mobile']) ?>
                                         </td>
                                         <td><?= ($item['product_name']); ?></td>
                                         <td><?= $item['quantity']; ?></td>
                                         <td>₹<?= number_format($item['product_price'], 2); ?></td>
-                                        <td>₹<?= number_format($item['total_price'], 2); ?></td>
+                                        <td>₹<?= number_format($order['subtotal'], 2); ?></td>
                                         <td class="<?= ($order['payment_status'] == 'Success') ? 'text-success' : 'text-danger'; ?>">
                                             <?= $order['payment_status']; ?>
                                         </td>

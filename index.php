@@ -1,4 +1,14 @@
-<?php include('admin/inc/config.php'); ?>
+<?php include('admin/inc/config.php');
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Get session ID
+$session_id = session_id();
+if (empty($session_id)) {
+    die('Session not started.');
+} ?>
 <!DOCTYPE html>
 <html>
 
@@ -215,7 +225,7 @@
             }
         }
 
-        @media screen and  (min-width: 1400px) {
+        @media screen and (min-width: 1400px) {
 
             .container,
             .container-lg,
@@ -256,6 +266,8 @@
             border-radius: 50%;
         }
     </style>
+
+    
 </head>
 
 <body>
@@ -281,7 +293,7 @@
 
                         <div class="caption left-align">
                             <h1 style="color: var(--secondary-color); margin:0; "><?= ($row['ser_name']); ?></h1>
-                            <h5 style="color: var(--primary-color); padding-top: 20px;   margin:0; padding:"><?= ($row['ser_heading']); ?></h5>
+                            <h2 style="color: var(--primary-color); padding-top: 20px;   margin:0; padding:"><?= ($row['ser_heading']); ?></h2>
                             <p style="color: red;"> <?= ($row['ser_description']); ?></p>
                         </div>
                     </li>
@@ -314,6 +326,16 @@
         $meta_keyword = $row['meta_keyword'] ?? '';
         $meta_desc = $row['meta_desc'] ?? '';
         $image = $row['image'] ?? '';
+
+        // Function to limit words
+        function limitWords($text, $limit = 41)
+        {
+            $words = explode(" ", strip_tags($text));
+            if (count($words) > $limit) {
+                return implode(" ", array_slice($words, 0, $limit)) . "...";
+            }
+            return $text;
+        }
         ?>
 
         <section class="as_about_wrapper as_padderTop80 as_padderBottom80" style="background: var(--white-color);">
@@ -325,7 +347,7 @@
                             <div>
                                 <div class="as_aboutimg text-right">
                                     <?php if (!empty($image)) : ?>
-                                        <img src="./admin/uploads/accessroies/about/<?= ($image); ?>" alt="About Image" style="padding-left:20px;">
+                                        <img src="./admin/uploads/accessroies/about/<?= $image; ?>" alt="About Image" style="padding-left:20px;">
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -335,24 +357,23 @@
                     <!-- Dynamic Text Content -->
                     <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                         <h1 class="as_heading" style="color: var(--primary-color);">About Us</h1>
-                        <h4 style="color: var(--primary-color);"><?= ($sub_heading) ?></h4>
+                        <h4 style="color: var(--primary-color);"><?= $sub_heading; ?></h4>
                         <p style="color: var(--primary-color); text-align:justify; font-size:18px;">
-                            <?= nl2br(implode(' ', array_slice(explode(' ', strip_tags($short_desc)), 0, 80)) . (str_word_count(strip_tags($short_desc)) > 80 ? '...' : '')) ?>
+                            <?= limitWords($short_desc, 41); ?>
                         </p>
 
                         <a href="about.php" class="as_btn">read more</a>
 
                         <div class="as_contact_expert" style="background-color: var(--secondary-color);">
                             <span class="as_icon" style="background: var(--primary-color);">
-                                <!-- SVG Icon Here -->
                                 <img src="./assets/my-images/chat.png" alt="" style="width:40px;">
                             </span>
                             <div>
                                 <h5 class="as_white">Contact us at</h5>
                                 <h1 class="as_orange" style="color: #fff;">
                                     <p>
-                                        <a href="https://api.whatsapp.com/send?phone=<?php echo ($phone_no_1); ?>&text=Hello! Can I get more info on this ?.">
-                                            +91 <?php echo ($phone_no_1); ?>
+                                        <a href="https://api.whatsapp.com/send?phone=<?= $phone_no_1; ?>&text=Hello! Can I get more info on this ?.">
+                                            +91 <?= $phone_no_1; ?>
                                         </a>
                                     </p>
                                 </h1>
@@ -362,6 +383,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- About Section End -->
 
@@ -587,6 +609,68 @@
                                 <?php
                                 }
                                 ?>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section End -->
+
+
+        <!-- Blog Section Start -->
+        <section class="as_zodiac_sign_wrapper as_padderTop80 as_padderBottom80 button-disable" style="background: var(--white-color);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h1 class="as_heading as_heading_center">Our Latest News & Events</h1>
+                        <p class="as_font14 as_margin0 as_padderBottom20" style="font-family: 'Dancing Script', cursive; font-size:22px;"><b>"News and Events You Should Know!"</b></p>
+
+                        <div class="text-left">
+
+                            <div class="row as_blog_slider">
+                                <?php
+                                $i = 0;
+                                $statement = $pdo->prepare("SELECT * FROM tbl_news  ORDER BY page_order ASC");
+
+                                $statement->execute();
+                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                                foreach ($result as $index => $row1) : ?>
+
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="as_product_box">
+                                            <div class="as_blog_img">
+                                                <img src="./admin/uploads/news/<?php echo $row1['b_image']; ?>" alt="" class="img-responsive" style="width: 100%;  ">
+                                            </div>
+                                            <!-- Read More Button -->
+                                            <button type="button" class="btn btn-primary " style="background-color:var(--primary-color); border:none;" data-bs-toggle="modal" data-bs-target="#blogModal<?= $index; ?>">
+                                                Read More
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="blogModal<?= $index; ?>" tabindex="-1" aria-labelledby="blogModalLabel<?= $index; ?>" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="blogModalLabel<?= $index; ?>" style="color: var(--text2-color);"><?= $row['b_name']; ?></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="as_blog_img" style="padding: 10px 10px;">
+                                                    <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="" class="img-responsive" style="width: 100%;">
+                                                </div>
+                                                <div class="modal-body" style="color: var(--text2-color);">
+                                                    <?= $row['b_description']; ?>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" style="background-color:var(--primary-color); border:none;" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
 
                             </div>
 

@@ -43,15 +43,15 @@ $statement->execute();
 $total_accessories = $statement->rowCount();
 
 
-$statement = $pdo->prepare("SELECT * FROM tbl_order WHERE order_status=?");
+$statement = $pdo->prepare("SELECT * FROM tbl_orders WHERE order_status=?");
 $statement->execute(array('Pending'));
 $total_order_pending = $statement->rowCount();
 
-$statement = $pdo->prepare("SELECT * FROM tbl_order WHERE order_status=?");
+$statement = $pdo->prepare("SELECT * FROM tbl_orders WHERE order_status=?");
 $statement->execute(array('Shipped'));
 $total_order_Shipped = $statement->rowCount();
 
-$statement = $pdo->prepare("SELECT * FROM tbl_order WHERE order_status=?");
+$statement = $pdo->prepare("SELECT * FROM tbl_orders WHERE order_status=?");
 $statement->execute(array('Delivered'));
 $total_order_Complete = $statement->rowCount();
 ?>

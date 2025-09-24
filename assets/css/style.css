@@ -194,7 +194,7 @@ a, a:hover, a:focus {
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
-    padding: 0 23px;
+    padding: 0 15px;
     position: relative;
     margin-left: 15px;
     color: var(--white-color);
@@ -2073,7 +2073,7 @@ section.as_whychoose_wrapper.as_padderTop80 {
 .modal .modal-dialog {
     margin: 0 auto;
     transform: none !important;
-    width: 500px;
+    /*width: 500px;*/
     display: flex;
     align-items: center;
     justify-content: center;

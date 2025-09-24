@@ -25,7 +25,7 @@
 					$statement->execute();
 					$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 					?>
-					<table id="example1" class="table table-bordered table-hover table-striped">
+					<table class="table table-bordered table-hover table-striped">
 						<thead class="thead-dark">
 							<tr>
 								<th width="10">S.No</th>

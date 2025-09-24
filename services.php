@@ -1,6 +1,17 @@
 <?php
 include('admin/inc/config.php');
 
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Get session ID
+$session_id = session_id();
+if (empty($session_id)) {
+    die('Session not started.');
+}
+
 if (!isset($_GET['url']) || empty($_GET['url'])) {
     echo "Invalid ID";
     exit;

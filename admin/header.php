@@ -174,6 +174,13 @@ if (!isset($_SESSION['user'])) {
 							<li><a href="blog.php"><i class="fa fa-circle-o"></i>Add Blogs</a></li>
 						</ul>
 					</li>
+					<li class="treeview <?php if (($cur_page == 'news-events.php')) {
+											echo 'active';
+										} ?>">
+						<a href="news-events.php">
+							<i class="fa fa-globe"></i> <span>Manage News & Events</span>
+						</a>
+					</li>
 					<li class="treeview <?php if (($cur_page == 'testimonial.php')) {
 											echo 'active';
 										} ?>">
@@ -185,8 +192,8 @@ if (!isset($_SESSION['user'])) {
 
 
 					<li class="treeview <?php if (($cur_page == 'order.php')) {
-													echo 'active';
-												} ?>">
+											echo 'active';
+										} ?>">
 						<a href="order.php">
 							<i class="fa fa-sticky-note"></i> <span>Order Management</span>
 						</a>

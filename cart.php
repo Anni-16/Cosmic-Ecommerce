@@ -27,8 +27,7 @@ try {
     foreach ($cart_items as $item) {
         $subtotal += (float)$item['product_price'] * (int)$item['quantity'];
     }
-    $gst = $subtotal * 0.18; // 18% GST
-    $total_with_gst = $subtotal + $gst;
+   
 } catch (Throwable $e) {
     die('Error fetching cart data: ' . $e->getMessage());
 }
@@ -178,20 +177,10 @@ try {
                                         <?php endforeach; ?>
                                         <tr>
                                             <td colspan="3"></td>
-                                            <td style="color: var(--primary-color);">Subtotal</td>
+                                            <td style="color: var(--primary-color);">Total</td>
                                             <td style="color: var(--primary-color);" id="cart-subtotal">₹<?php echo number_format($subtotal, 2); ?></td>
                                         </tr>
 
-                                        <tr>
-                                            <td colspan="3"></td>
-                                            <td style="color: var(--primary-color);">GST (18%)</td>
-                                            <td style="color: var(--primary-color);" id="cart-gst">₹<?php echo number_format($gst, 2); ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3"></td>
-                                            <td style="color: var(--primary-color);">Total</td>
-                                            <td style="color: var(--primary-color);" id="cart-total">₹<?php echo number_format($total_with_gst, 2); ?></td>
-                                        </tr>
                                     <?php endif; ?>
                                 </tbody>
                             </table>
@@ -199,6 +188,7 @@ try {
                         <div class="d-flex justify-content-between"  >
                         <a href="#" id="backBtn" class="proceed_btn as_btn">Back</a>
 
+                        <a href="shop.php" class="proceed_btn as_btn" value="Apply Cupon Code">Back To Shop </a>
                         <a href="checkout.php" class="proceed_btn as_btn" value="Apply Cupon Code">checkout</a>
                         </div>
                     </div>

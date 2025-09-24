@@ -25,7 +25,7 @@
                                     <span class="as_infoicon">
                                         <img src="./assets/my-images/chat-green.png" alt="" style="width: 20px;">
                                     </span>
-                                      <?php echo ($phone_no_1); ?>
+                                    <?php echo ($phone_no_1); ?>
                                 </div>
                             </a>
                         </li>
@@ -191,6 +191,7 @@
 
                         </li>
                         <li><a href="contact.php" style="color: var(--white2-color);" class="<?= ($current_page == 'contact.php') ? 'active' : '' ?>">contact</a></li>
+                        <li><a href="news-events.php" style="color: var(--white2-color);" class="<?= ($current_page == 'news-events.php') ? 'active' : '' ?>">News & Events</a></li>
                         <li>
                             <div class="as_search_wrapper" id="mobile-header-none">
                                 <img src="assets/images/search.png" alt="" class="as_search">
@@ -230,18 +231,56 @@
 
                 </div>
 
+                <?php
+                // Include database configuration
+                include 'admin/inc/config.php';
+
+                // Start session if not already started
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+
+                $session_id = session_id();
+                if (empty($session_id)) {
+                    die('Session not started.');
+                }
+
+                // Function to count total cart items
+                function getCartItemCount($pdo, $session_id)
+                {
+                    // Check if $pdo is defined and valid
+                    if (!isset($pdo) || !$pdo instanceof PDO) {
+                        error_log('Database connection not available.', 3, 'errors.log');
+                        return 0;
+                    }
+
+                    try {
+                        $stmt = $pdo->prepare("SELECT COUNT(*) as item_count FROM tbl_cart WHERE session_id = ?");
+                        $stmt->execute([$session_id]);
+                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                        return $result['item_count'] ?? 0;
+                    } catch (Exception $e) {
+                        error_log('Cart Count Query Error: ' . $e->getMessage(), 3, 'errors.log');
+                        return 0;
+                    }
+                }
+
+                // Get cart count, only if $pdo is defined
+                $cart_count = isset($pdo) ? getCartItemCount($pdo, $session_id) : 0;
+                ?>
+
                 <div class="as_right_info">
                     <div id="cart-my">
                         <div class="nav">
                             <div class="box">
-                                <div class="cart-count">0</div>
+                                <div class="cart-count"><?php echo ($cart_count); ?></div>
                                 <img src="assets/images/svg/cart.svg" alt="" name="cart" id="cart-icon" style=" margin-top: -5px;">
                             </div>
 
                             <div class="cart">
                                 <div class="cart-title">Cart Items</div>
                                 <div class="cart-content">
-
+                                    <!-- Cart items will be populated dynamically, e.g., via JavaScript or PHP -->
                                 </div>
 
                                 <div class="total">
@@ -254,14 +293,10 @@
                                 </a>
 
                                 <ion-icon name="close" id="cart-close"></ion-icon>
-
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
             <span class="as_body_overlay"></span>
         </div>

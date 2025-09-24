@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
 
         // ✅ Redirect on success
-        header("Location: index.php?msg=success");
+        echo "<script>alert('Your message has been sent successfully!');window.location.href='index.php';</script>";
         exit;
 
     } catch (Exception $e) {

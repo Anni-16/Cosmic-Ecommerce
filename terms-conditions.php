@@ -1,4 +1,15 @@
 <?php include('admin/inc/config.php');
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Get session ID
+$session_id = session_id();
+if (empty($session_id)) {
+    die('Session not started.');
+}
+
 // Fetch payment policy once
 $statement = $pdo->prepare("SELECT heading, content FROM tbl_term_conditions WHERE id = 1");
 $statement->execute();
