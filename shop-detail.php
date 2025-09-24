@@ -300,7 +300,7 @@ $a_id = $product['a_id'];
                                                     <div class="as_product_description">
                                                         <h3 class="as_subheading as_margin0 as_padderBottom10 food-title">
                                                             <?php echo ($product['a_name']); ?></h3>
-                                                        <h2 class="as_price food-price"> Price: ₹
+                                                        <h2 class="as_price food-price"> Price: 
                                                             <?php echo ($product['a_current_price']); ?> </h2>
                                                         <div class="product_rating as_padderBottom10">
                                                             <span class="ref_number as_font14" style="font-size: 18px;">Product Id :
@@ -338,7 +338,7 @@ $a_id = $product['a_id'];
 
                                                         </div>
                                                         <div style="margin-top: -18px; padding-top: 0;">
-                                                            <button type="submit" id="button-cart" data-loading-text="Loading..." class="as_btn" style="background: var(--secondary-color);  margin-top: 18px;" value=""><a href="cart.php">Buy Now</a></button>
+                                                            <button type="submit" id="button-cart" data-loading-text="Loading..." class="as_btn" style="background: var(--secondary-color);  margin-top: 18px;" value=""><a href="cart.php">Checkout</a></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -444,7 +444,7 @@ $a_id = $product['a_id'];
                                                     <?php echo $row['a_name']; ?>
                                                 </a>
                                             </h4>
-                                            <span class="as_price">₹ <?php echo $row['a_current_price']; ?></span>
+                                            <span class="as_price"> <?php echo $row['a_current_price']; ?></span>
                                             <div class="show-animation">
                                                 <a href="shop-detail.php?url=<?php echo $row['url']; ?>" class="as_btn" style="background-color: var(--primary-color);">View Details</a>
                                             </div>
