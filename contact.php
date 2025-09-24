@@ -197,7 +197,7 @@ if (empty($session_id)) {
                                     </div>
 
                                     <!-- Captcha -->
-<!-- 
+
                                     <div id="captcha" class="form_div ">
                                         <div class="preview"></div>
                                         <div class="field-inner captcha_form">
@@ -206,7 +206,7 @@ if (empty($session_id)) {
                                                 <i class="fa fa-refresh"></i>
                                             </button>
                                         </div>
-                                    </div> -->
+                                    </div>
 
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ">

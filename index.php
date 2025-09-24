@@ -265,9 +265,19 @@ if (empty($session_id)) {
             transition: background-color .3s;
             border-radius: 50%;
         }
+
+        .modal {
+            width: 100% !important;
+            max-height: 100vh !important;
+        }
+
+        .modal .modal-content {
+            padding: 24px;
+            BACKGROUND: #fff;
+        }
     </style>
 
-    
+
 </head>
 
 <body>
@@ -620,37 +630,110 @@ if (empty($session_id)) {
         <!-- Blog Section End -->
 
 
-        <!-- Blog Section Start -->
+        <style>
+            .slider-css {
+                position: relative;
+                width: 100%;
+                height: 400px;
+                /* Set height as needed */
+                overflow: hidden;
+            }
+
+            .slider-css img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                animation: slideShow 4s ease-in-out infinite;
+            }
+
+            .slider-css img:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            .slider-css img:nth-child(2) {
+                animation-delay: 1s;
+            }
+
+            .slider-css img:nth-child(3) {
+                animation-delay: 2s;
+            }
+
+            .slider-css img:nth-child(4) {
+                animation-delay: 3s;
+            }
+
+            .slider-css img:nth-child(5) {
+                animation-delay: 4s;
+            }
+
+            .slider-css img:nth-child(6) {
+                animation-delay: 5;
+            }
+
+            .slider-css img:nth-child(7) {
+                animation-delay: 6;
+            }
+
+            @keyframes slideShow {
+                0% {
+                    opacity: 0;
+                }
+
+                10% {
+                    opacity: 1;
+                }
+
+                25% {
+                    opacity: 1;
+                }
+
+                35% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+        </style>
+
+        <!-- News Section Start -->
         <section class="as_zodiac_sign_wrapper as_padderTop80 as_padderBottom80 button-disable" style="background: var(--white-color);">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h1 class="as_heading as_heading_center">Our Latest News & Events</h1>
+                        <h1 class="as_heading as_heading_center">News & Events</h1>
                         <p class="as_font14 as_margin0 as_padderBottom20" style="font-family: 'Dancing Script', cursive; font-size:22px;"><b>"News and Events You Should Know!"</b></p>
 
                         <div class="text-left">
 
-                            <div class="row as_blog_slider">
+                            <div class="row d-flex justify-content-center">
                                 <?php
                                 $i = 0;
-                                $statement = $pdo->prepare("SELECT * FROM tbl_news  ORDER BY page_order ASC");
-
+                                $statement = $pdo->prepare("SELECT * FROM tbl_news WHERE status = 1  ORDER BY news_id DESC LIMIT 3");
                                 $statement->execute();
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-                                foreach ($result as $index => $row1) : ?>
-
-                                    <div class="col-lg-3 col-md-6">
+                                foreach ($result as $index => $row) : ?>
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-4">
                                         <div class="as_product_box">
                                             <div class="as_blog_img">
-                                                <img src="./admin/uploads/news/<?php echo $row1['b_image']; ?>" alt="" class="img-responsive" style="width: 100%;  ">
+                                                <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="" class="img-responsive" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#blogModal<?= $index; ?>">
                                             </div>
+                                            <h4 class="as_subheading" style="color: var(--text2-color);"><?= $row['b_name']; ?></h4>
+
                                             <!-- Read More Button -->
                                             <button type="button" class="btn btn-primary " style="background-color:var(--primary-color); border:none;" data-bs-toggle="modal" data-bs-target="#blogModal<?= $index; ?>">
                                                 Read More
                                             </button>
                                         </div>
                                     </div>
+
+                                    <!-- Modal -->
                                     <div class="modal fade" id="blogModal<?= $index; ?>" tabindex="-1" aria-labelledby="blogModalLabel<?= $index; ?>" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-lg">
                                             <div class="modal-content">
@@ -658,8 +741,16 @@ if (empty($session_id)) {
                                                     <h5 class="modal-title" id="blogModalLabel<?= $index; ?>" style="color: var(--text2-color);"><?= $row['b_name']; ?></h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="as_blog_img" style="padding: 10px 10px;">
+                                                <div class="as_blog_img slider-css" style="padding: 10px 10px;">
                                                     <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="" class="img-responsive" style="width: 100%;">
+                                                    <?php
+                                                    // Fetch gallery images for this news item
+                                                    $stmt_gallery = $pdo->prepare("SELECT * FROM tbl_news_photo WHERE news_id = ?");
+                                                    $stmt_gallery->execute([$row['news_id']]);
+                                                    $gallery_images = $stmt_gallery->fetchAll(PDO::FETCH_ASSOC);
+                                                    foreach ($gallery_images as $g) : ?>
+                                                        <img src="./admin/uploads/news/gallery/<?php echo $g['photo']; ?>" alt="" class="img-responsive" style="width: 100%;">
+                                                    <?php endforeach; ?>
                                                 </div>
                                                 <div class="modal-body" style="color: var(--text2-color);">
                                                     <?= $row['b_description']; ?>
@@ -674,12 +765,14 @@ if (empty($session_id)) {
 
                             </div>
 
+                            <a href="news-events.php" class="btn btn-primary " style="background-color:var(--primary-color); border:none;">View All</a>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Blog Section End -->
+        <!-- News Section End -->
 
         <!-- Footer Section Start -->
         <?php include('include/footer-index.php'); ?>
