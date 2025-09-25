@@ -101,15 +101,15 @@ if (empty($session_id)) {
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="as_blog_img slider-css"  >
-                                                    <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;" >
                                                     <?php
                                                     // Fetch gallery images for this news item
                                                     $stmt_gallery = $pdo->prepare("SELECT * FROM tbl_news_photo WHERE news_id = ?");
                                                     $stmt_gallery->execute([$row['news_id']]);
                                                     $gallery_images = $stmt_gallery->fetchAll(PDO::FETCH_ASSOC);
                                                     foreach ($gallery_images as $g) : ?>
+                                                        <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;" >
                                                         <img src="./admin/uploads/news/gallery/<?php echo $g['photo']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;">
-                                                    <?php endforeach; ?>
+                                                        <?php endforeach; ?>
                                                 </div>
                                                 <div class="modal-body" style="color: var(--text2-color);">
                                                     <?= $row['b_description']; ?>
