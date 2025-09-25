@@ -32,7 +32,7 @@ $image2 = $row['image2'] ?? '';
 
 <head>
     <meta charset="UTF-8">
-    <title>Cosmicenergies - About | <?= $meta_title; ?></title>
+    <title><?= !empty($meta_title) ? $meta_title : $sub_heading; ; ?></title>
     <meta name="title" content="<?= $meta_title; ?>">
     <meta name="keyword" content="<?= $meta_keyword; ?>">
     <meta name="description" content="<?= $meta_desc; ?>">

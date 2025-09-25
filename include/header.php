@@ -1,3 +1,18 @@
+<style>
+    @media screen and (max-width:1024px){
+        .as_menu_wrapper2{
+            padding-top:20px !important;
+            justify-content:flex-end !important;
+        }
+    }
+    @media screen and (max-width:480px){
+        .as_menu_wrapper2{
+            padding-top:0px !important;
+            padding-right:50px !important ;
+        }
+    }
+</style>
+
 <div class="main-header">
     <div class="top-header" style="background-color: var(--white2-color);  ">
         <div class="row" style="margin-bottom: 0;">

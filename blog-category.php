@@ -41,7 +41,7 @@ if (isset($_GET['url'])) {
 <html lang="en">
 
 <head>
-    <title>Cosmicenergies | Numerology Website | Blog</title>
+    <title>Cosmicenergies | Numerology Website | Blog <?= $blo_name; ?> </title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

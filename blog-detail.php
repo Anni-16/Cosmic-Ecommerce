@@ -37,7 +37,7 @@ if (isset($_GET['url']) && !empty($_GET['url'])) {
 <html lang="en">
 
 <head>
-    <title>Cosmicenergies | <?= $blog['b_name']; ?> | <?= $blog['b_meta_title']; ?></title>
+    <title><?= !empty($blog['b_meta_title']) ? $blog['b_meta_title'] : $blog['b_name']; ?></title>
     <meta charset="UTF-8">
     <meta name="title" content="<?= $blog['b_meta_title']; ?>">
     <meta name="keyword" content="<?= $blog['b_meta_keyword']; ?>">
@@ -56,8 +56,8 @@ if (isset($_GET['url']) && !empty($_GET['url'])) {
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-    
-    
+
+
     <link rel="stylesheet" type="text/css" href="assets/css/blog-details-page.css" />
 
 </head>

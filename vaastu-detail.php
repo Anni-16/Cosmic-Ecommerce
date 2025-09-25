@@ -45,7 +45,7 @@ $map_status    = $data['map_status'];
 <html lang="en">
 
 <head>
-    <title>Cosmicenergies | <?= $ser_name; ?> | <?= $data['ser_meta_title'] ?> </title>
+<title><?= !empty($data['ser_meta_title']) ? $data['ser_meta_title'] : $ser_name; ?></title>
     <meta charset="UTF-8">
     <meta name="title" content="<?= $data['ser_meta_title']; ?>">
     <meta name="keyword" content="<?= $data['ser_meta_keyword']; ?>">

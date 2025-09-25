@@ -32,7 +32,51 @@ if (empty($session_id)) {
     <!-- This Google Font used in Captions -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">  
 
-    <link rel="stylesheet" type="text/css" href="assets/css/index-page.css" /> 
+    <link rel="stylesheet" type="text/css" href="assets/css/index-page.css" />
+    
+     <style>
+     
+            @media screen and (max-width:1440px){
+.slider .caption h1 {
+    font-size:20px !important;
+    text-align:right;
+    padding-right:40px !important;
+} 
+.slider .caption h2 {
+    font-size:24px !important;
+    text-align:right;
+    padding-right:40px !important;
+} 
+                 .banner-heading-1{
+                    font-size:20px !important;
+                    padding-right:40px !important;
+                }
+                .banner-heading-2{
+                    font-size:24px !important;
+                    padding-right:40px;
+                }
+            }
+            @media screen and (max-width:480px){
+                .news-section-mobile-hide{
+                    display:none;
+                }
+                
+                .slider .caption h1 { 
+    padding-right:20px !important;
+} 
+.slider .caption h2 { 
+    padding-right:20px !important;
+} 
+                 .banner-heading-1{
+                    padding-right:20px !important;
+                }
+                .banner-heading-2{
+                  padding-right:20px !important;
+                }
+                
+            }
+        </style>
+    
 </head>
 
 <body>
@@ -41,7 +85,7 @@ if (empty($session_id)) {
         <!-- START HEADER -->
         <?php include('include/header.php') ?>
         <!-- END HEADER -->
-
+ 
 
         <!-- Banner Start -->
         <div class="slider fullscreen">
@@ -57,8 +101,8 @@ if (empty($session_id)) {
                         <img src="./admin/uploads/banner/<?= $row['ser_image_2']; ?>" id="banner-image-style" alt="" class="mobile-show-banner-image" />
 
                         <div class="caption left-align">
-                            <h1 style="color: var(--secondary-color); margin:0; "><?= ($row['ser_name']); ?></h1>
-                            <h2 style="color: var(--primary-color); padding-top: 20px;   margin:0; padding:"><?= ($row['ser_heading']); ?></h2>
+                            <h1 class="banner-heading-1" style="color: var(--secondary-color); margin:0; font-size: 34px ;"><?= ($row['ser_name']); ?></h1>
+                            <h2 class="banner-heading-2" style="color: var(--primary-color); padding-top: 20px;   margin:0; font-size: 32px ;"><?= ($row['ser_heading']); ?></h2>
                             <p style="color: red;"> <?= ($row['ser_description']); ?></p>
                         </div>
                     </li>
@@ -148,8 +192,6 @@ if (empty($session_id)) {
                 </div>
             </div>
         </section>
-
-
         <!-- About Section End -->
 
         <!-- Numerlogy Section Start -->
@@ -383,11 +425,9 @@ if (empty($session_id)) {
             </div>
         </section>
         <!-- Blog Section End -->
- <style>
-     .news-section-mobile-hide{
-    display:none;
-}
- </style>
+        
+       
+ 
         <!-- News Section Start -->
         <section class="as_zodiac_sign_wrapper as_padderTop80 as_padderBottom80 button-disable news-section-mobile-hide" style="background: var(--white-color);"  >
             <div class="container">

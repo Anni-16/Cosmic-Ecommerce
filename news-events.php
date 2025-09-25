@@ -15,7 +15,7 @@ if (empty($session_id)) {
 <html lang="en">
 
 <head>
-    <title>Cosmicenergies | Numerology Website | Blog</title>
+    <title>Cosmicenergies | Numerology Website | New & Events</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,7 +138,7 @@ if (empty($session_id)) {
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Other Scripts -->
+     <!-- javascript -->
     <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery.min.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
     <script src="assets/js/bootstrap.min.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
@@ -146,3 +146,9 @@ if (empty($session_id)) {
     <script src="assets/js/plugin/countto/jquery.countTo.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
     <script src="assets/js/plugin/airdatepicker/datepicker.min.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
     <script src="assets/js/plugin/airdatepicker/i18n/datepicker.en.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/custom2.js" type="dea942b4e5104683ffff5739-text/javascript"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/rocket-loader.min.js" data-cf-settings="dea942b4e5104683ffff5739-|49" defer></script>
+    
+</body>
+</html>
