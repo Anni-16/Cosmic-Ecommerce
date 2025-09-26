@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Kolkata');
 
 // Prev Database configuration
 $dbhost = 'localhost';
-$dbname = 'cosmicenergies_db';
+$dbname = 'cosm_db';
 $dbuser = 'root';
 $dbpass = '';
 

@@ -245,7 +245,7 @@
 
 <!-- Footer section Extra Just For Bg  -->
 <div class="" style="background: var(--primary-color);">
-    <span style=" visibility: hidden;">hzasd</span>
+    <span style=" visibility: hidden;">sdfssfsdfsdfssfsdfsdfssfsdfsdfssfsdf</span>
 </div>
 <!-- Footer section Extra Just For Bg  -->
 

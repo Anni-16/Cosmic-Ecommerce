@@ -184,7 +184,7 @@ if (isset($_POST['form1'])) {
                             <label class="col-sm-3 control-label">Change Featured Image</label>
                             <div class="col-sm-4">
                                 <input type="file" name="b_image">
-                                <small class="text-muted">Leave blank to keep existing image & Image Size :- 1920px Width And 800px Height</small>
+                                <small class="text-muted">Leave blank to keep existing image & Image Size :- 1250px Width And 850px Height</small>
                             </div>
                         </div>
 

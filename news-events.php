@@ -93,7 +93,7 @@ if (empty($session_id)) {
                                     </div>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="blogModal<?= $index; ?>" tabindex="-1" aria-labelledby="blogModalLabel<?= $index; ?>" aria-hidden="true">
+                                    <div class="modal fade" id="blogModal<?= $index; ?>" tabindex="-1" aria-labelledby="blogModalLabel<?= $index; ?>" aria-hidden="true" style="padding:50px;">
                                         <div class="modal-dialog modal-dialog-centered modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -107,9 +107,9 @@ if (empty($session_id)) {
                                                     $stmt_gallery->execute([$row['news_id']]);
                                                     $gallery_images = $stmt_gallery->fetchAll(PDO::FETCH_ASSOC);
                                                     foreach ($gallery_images as $g) : ?>
-                                                        <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;" >
+                                                    <img src="./admin/uploads/news/<?php echo $row['b_image']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;" >
                                                         <img src="./admin/uploads/news/gallery/<?php echo $g['photo']; ?>" alt="<?= $row['b_name']; ?>" class="img-responsive" style="width: 100%; padding:20px;">
-                                                        <?php endforeach; ?>
+                                                    <?php endforeach; ?>
                                                 </div>
                                                 <div class="modal-body" style="color: var(--text2-color);">
                                                     <?= $row['b_description']; ?>
